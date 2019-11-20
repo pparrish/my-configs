@@ -266,6 +266,9 @@ set nrformats=
   endfunction
 
 " }}}
+" ABBREVIATIONS {{{
+iabbrev cont const
+" }}}
 
   set modelines=1
 " vim:foldmethod=marker:foldlevel=0
