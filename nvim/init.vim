@@ -188,6 +188,8 @@ nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
 
 " BEHAIBOR ###################
 set autoread
+"Set the <c-x> and <c-a> only use decimal
+set nrformats=
 
 " BACKUP #########
   set backup
