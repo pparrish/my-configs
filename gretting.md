@@ -22,9 +22,22 @@ _______
 
 
 # Nvim
-fuzzy file finder
 
-* \<c-p\> to open the interface
+## All commond vim operator commands
+* c  - change.
+* d  - delete
+* y  - yank (copy)
+* g~ - swap case
+* gu - to lowercase
+* gU - to uppercase
+* >  - Shift right
+* <  - Shift left
+* =  - Autoident
+* !  - external.
+
+## fuzzy file finder
+
+* <\<c-p\> to open the interface
 * cr to open selected file
 * ctl 
 * k,j navigate the list
@@ -34,6 +47,9 @@ fuzzy file finder
 * v vertical
 * t new tab
 
+## Add or substract numbers
+<c-a> add number to (ex. 10<C-a>)
+<c-x> subtract numver (ex. 12<c-x>)
 
 _______
 
