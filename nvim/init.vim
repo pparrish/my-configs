@@ -8,6 +8,8 @@ let g:mapleader = ','
   call minpac#add('herrbischoff/cobalt2.vim')
   call minpac#add('posva/vim-vue')
   call minpac#add('jalvesaq/Nvim-R')
+  call minpac#add('godlygeek/tabular')
+  call minpac#add('plasticboy/vim-markdown')
   "}}}
   " Ale {{{
   call minpac#add('dense-analysis/ale')
@@ -167,6 +169,8 @@ nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
   syntax on
   set number                  " add line numbers
   set showcmd                 "show last command in the bar
+
+  
   filetype indent on          "Auto indent depending on files in ./indent/[filetype].vim
   set wildmenu                "Visual autocomplete for command menu
   set lazyredraw              " Redraw only when is nedded
