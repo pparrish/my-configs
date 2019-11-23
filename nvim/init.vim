@@ -1,103 +1,80 @@
 " Plugins {{{
-  packadd minpac
-  call minpac#init()
-  command! PackUpdate call minpac#update()
-  command! PackClean call minpac#clean()
-  " Plugin withoud configs {{{
-  call minpac#add('herrbischoff/cobalt2.vim')
-  call minpac#add('posva/vim-vue')
-  call minpac#add('jalvesaq/Nvim-R')
-  call minpac#add('godlygeek/tabular')
-  call minpac#add('plasticboy/vim-markdown')
-  "}}}
-  " Ale {{{
-  call minpac#add('dense-analysis/ale')
-  let g:ale_linters = {
-        \'javascript': ['standard']
-        \}
-  let g:ale_fixers = { 'javascript': ['standard'] }
-
-  let g:ale_lint_on_save = 1
-  let g:ale_fix_on_save = 1
-  let g:ale_linters_explicit = 1
-  " }}}
-  " Rainbow {{{
-  call minpac#add('oblitum/rainbow')
-  let g:rainbow_active = 1
-  "}}}
-  " Guneo {{{
-  call minpac#add('sjl/gundo.vim')
-  nnoremap <leader>tu :GundoToggle<CR>
-  "}}}
-  " COC {{{
-  call minpac#add('neoclide/coc.nvim')
-  "" if hidden is not set, TextEdit might fail.
-  set hidden
-  " Some servers have issues with backup files, see #649
-  set nobackup
-  set nowritebackup
-  " Better display for messages
-  set cmdheight=2
-  " You will have bad experience for diagnostic messages when it's default 4000.
-  set updatetime=300
-  " don't give |ins-completion-menu| messages.
-  set shortmess+=c
-  " always show signcolumns
-  set signcolumn=yes
-  " Use `:Format` to format current buffer
-  command! -nargs=0 Format :call CocAction('format')
-
-  " Use `:Fold` to fold current buffer
-  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-  " use `:OR` for organize import of current buffer
-  command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-  " Add status line support, for integration with other plugin, checkout `:h coc-status`
-  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-  " }}}
+packadd minpac
+call minpac#init()
+call minpac#add('herrbischoff/cobalt2.vim')
+call minpac#add('posva/vim-vue')
+call minpac#add('jalvesaq/Nvim-R')
+call minpac#add('godlygeek/tabular')
+call minpac#add('plasticboy/vim-markdown')
+call minpac#add('dense-analysis/ale')
+call minpac#add('oblitum/rainbow')
+call minpac#add('sjl/gundo.vim')
+call minpac#add('neoclide/coc.nvim')
 " }}}
 
 
 " Config {{{
+let g:ale_linters = {
+      \'javascript': ['standard']
+      \}
+let g:ale_fixers = { 'javascript': ['standard'] }
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+let g:rainbow_active = 1
+" if hidden is not set, TextEdit might fail.
+set hidden
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+" Better display for messages
+set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
 " COLORS ################
-  colorscheme cobalt2         " my theme
-  syntax enable
+colorscheme cobalt2         " my theme
+syntax enable
 
 " SPACES AND TABS #######
-  set tabstop=2               " number of columns occupied by a tab character
-  set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
-  set expandtab               " converts tabs to white space
-  set ignorecase              " case insensitive matching
-  set shiftwidth=2            " width for autoindents
-  set autoindent              " indent a new line the same amount as the line just typed
+set tabstop=2               " number of columns occupied by a tab character
+set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set ignorecase              " case insensitive matching
+set shiftwidth=2            " width for autoindents
+set autoindent              " indent a new line the same amount as the line just typed
 " UI ####################
-  syntax on
-  set number                  " add line numbers
-  set showcmd                 "show last command in the bar
+syntax on
+set number                  " add line numbers
+set showcmd                 "show last command in the bar
 
-  
-  filetype indent on          "Auto indent depending on files in ./indent/[filetype].vim
-  set wildmenu                "Visual autocomplete for command menu
-  set lazyredraw              " Redraw only when is nedded
-  set showmatch               " highlight matching [{()}]
-  "set the 'read mode'
-  set wrap
-  set linebreak
-  set nolist
+
+filetype indent on          "Auto indent depending on files in ./indent/[filetype].vim
+set wildmenu                "Visual autocomplete for command menu
+set lazyredraw              " Redraw only when is nedded
+set showmatch               " highlight matching [{()}]
+"set the 'read mode'
+set wrap
+set linebreak
+set nolist
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 "Statusline name -> column line percent
 set statusline=%.20F%=[%02.2c[%03.3l\\%02.2p%%]
 
 " SEARCHING #############
-  set incsearch               " search as characters are entered
-  set hlsearch                " highlight search results
+set incsearch               " search as characters are entered
+set hlsearch                " highlight search results
 
 " FOLDING ##############
-  set foldenable              " enable folding
-  set foldlevelstart=1        " open 2 level of folds
-  set foldnestmax=4           " max folding level
-  set foldmethod=indent       " marker manual expr syntax diff
+set foldenable              " enable folding
+set foldlevelstart=1        " open 2 level of folds
+set foldnestmax=4           " max folding level
+set foldmethod=indent       " marker manual expr syntax diff
 
 " BEHAIBOR ###################
 set autoread
@@ -105,13 +82,29 @@ set autoread
 set nrformats=
 
 " BACKUP #########
-  set backup
-  set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  set backupskip=/tmp/*,/private/tmp/*
-  set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  set writebackup
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
 " }}}
+
+
+" Conmands {{{
+
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+"}}}
 
 
 " FUNCTIONS {{{
@@ -262,6 +255,12 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR> coc
 "Open the snippets
 nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
 " }}}
+
+" --Gundo {{{
+
+nnoremap <leader>tu :GundoToggle<CR>
+
+"}}}
 
 " turn of search highlight
 nnoremap <leader>nhl :nohlsearch<CR>
