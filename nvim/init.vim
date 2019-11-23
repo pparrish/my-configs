@@ -1,4 +1,3 @@
-let g:mapleader = ','
 " Plugins {{{
   packadd minpac
   call minpac#init()
@@ -59,7 +58,8 @@ let g:mapleader = ','
 
   " }}}
 " }}}
-"
+
+
 " Config {{{
 " COLORS ################
   colorscheme cobalt2         " my theme
@@ -177,6 +177,9 @@ augroup end
 
 
 " Keys {{{
+
+"Set leader at first
+let g:mapleader = ','
 
 " --CoC {{{
 
@@ -305,6 +308,7 @@ nnoremap <leader>s :mksession<CR>
 nnoremap <leader>uiw viwU
 
 " }}}
+
 
 " ABBREVIATIONS {{{
 iabbrev cont const
