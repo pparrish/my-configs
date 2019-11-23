@@ -45,26 +45,6 @@ let g:mapleader = ','
   set shortmess+=c
   " always show signcolumns
   set signcolumn=yes
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-  augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  augroup end
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
 
@@ -136,6 +116,23 @@ set nrformats=
 
 " FUNCTIONS {{{
 
+" --CoC {{{
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+"}}}
+
 " togle betwen relative and non relative number
 function! ToggleNumber()
   if(&relativenumber == 1)
@@ -150,6 +147,24 @@ endfunction
 
 
 " AUTOCMD {{{
+
+" --CoC {{{
+
+augroup cocgroup
+  autocmd!
+
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+augroup end
+
+" }}}
 
 augroup configgroup
   autocmd!
