@@ -252,26 +252,25 @@ set nrformats=
   
 " }}}
 
-" Functions {{{
-" AUTOCMD ###############
-  augroup configgroup
-    autocmd!
-    autocmd VimEnter * highlight clear SignColumn
-    autocmd bufwritepost *.js silent !standard % --fix
-    autocmd filetype vim :set foldmethod=marker foldlevel=0
-  augroup end
+" AUTOCMD {{{
+augroup configgroup
+  autocmd!
+  autocmd VimEnter * highlight clear SignColumn
+  autocmd bufwritepost *.js silent !standard % --fix
+  autocmd filetype vim :set foldmethod=marker foldlevel=0
+augroup end
+"}}}
 
-" CUSTOM FUNCTIONS ######
-  " togle betwen relative and non relative number
-  function! ToggleNumber()
-    if(&relativenumber == 1)
-      set norelativenumber
-      set number
-    else
-      set relativenumber
-    endif
-  endfunction
-
+" FUNCTIONS {{{
+" togle betwen relative and non relative number
+function! ToggleNumber()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
+endfunction
 " }}}
 
 " ABBREVIATIONS {{{
