@@ -258,6 +258,7 @@ set nrformats=
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
     autocmd bufwritepost *.js silent !standard % --fix
+    autocmd filetype vim :set foldmethod=marker foldlevel=0
   augroup end
 
 " CUSTOM FUNCTIONS ######
@@ -275,6 +276,3 @@ set nrformats=
 " ABBREVIATIONS {{{
 iabbrev cont const
 " }}}
-
-  set modelines=1
-" vim:foldmethod=marker:foldlevel=0
