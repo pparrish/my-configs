@@ -273,6 +273,9 @@ set nrformats=
   endfunction
 
 " }}}
+
 " ABBREVIATIONS {{{
 iabbrev cont const
+iabbrev strenght strength
+iabbrev nwe new
 " }}}
