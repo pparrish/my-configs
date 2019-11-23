@@ -132,18 +132,10 @@ set nrformats=
   set writebackup
 
 " }}}
-"
 
-" AUTOCMD {{{
-augroup configgroup
-  autocmd!
-  autocmd VimEnter * highlight clear SignColumn
-  autocmd bufwritepost *.js silent !standard % --fix
-  autocmd filetype vim :set foldmethod=marker foldlevel=0
-augroup end
-"}}}
 
 " FUNCTIONS {{{
+
 " togle betwen relative and non relative number
 function! ToggleNumber()
   if(&relativenumber == 1)
@@ -153,11 +145,25 @@ function! ToggleNumber()
     set relativenumber
   endif
 endfunction
+
 " }}}
+
+
+" AUTOCMD {{{
+
+augroup configgroup
+  autocmd!
+  autocmd VimEnter * highlight clear SignColumn
+  autocmd bufwritepost *.js silent !standard % --fix
+  autocmd filetype vim :set foldmethod=marker foldlevel=0
+augroup end
+
+"}}}
+
 
 " Keys {{{
 
-" CoC {{{
+" --CoC {{{
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
