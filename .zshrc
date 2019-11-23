@@ -113,6 +113,9 @@ export PATH=$PATH:$VIMCONFIG/pack/bundle/start/fzf/bin
 export FZF_DEFAULT_COMMAND='rg --files'
 
 #git alias
+#show all configs
+alias aglcf="git config --list --show-origin"
+#Create a branch and go to branch
 alias takeBranch="git checkout -b"
 
 # Aliases
