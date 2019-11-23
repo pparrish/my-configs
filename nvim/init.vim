@@ -206,51 +206,6 @@ set nrformats=
 
 " }}}
 "
-" Keys {{{
-  " turn of search highlight
-  nnoremap <leader>nhl :nohlsearch<CR>
-  "togle folds map
-  nnoremap <leader>tf za
-" MOVEMENT #############
-  "move verticaly by visual line
-  nnoremap j gj
-  nnoremap k gk
-  "move to the begin/end of line
-  nnoremap B ^
-  nnoremap E $
-  nnoremap ^ <nop>
-  nnoremap $ <nop>
-  "highlight last inserted text
-  nnoremap <leader>hli `[v`]
-
-"### Key Config ###
-
-  "for open the file finder
-  nnoremap <C-p> :<C-u>FZF<CR>
-
-  "open vimrc
-  nnoremap <leader>ovrc :tabnew $MYVIMRC<CR>
-
-  "source vimrc
-  nnoremap <leader>svrc :source $MYVIMRC<CR>
-
-  "open javascript snippets
-  nnoremap <leader>snip :vsp ~/.config/nvim/ultisnippets/javascript.snippets
-
-  " jk to exit inseat esc
-  inoremap jk <esc>
-  inoremap <esc> <nop>
-
-  " Save from insertMode
-  inoremap :w <ESC>:w<CR>
-
-  " Save the session - to restore needs nvim -S
-  nnoremap <leader>s :mksession<CR>
-
-  " inner word uppercase
-  nnoremap <leader>uiw viwU
-  
-" }}}
 
 " AUTOCMD {{{
 augroup configgroup
@@ -271,6 +226,52 @@ function! ToggleNumber()
     set relativenumber
   endif
 endfunction
+" }}}
+
+" Keys {{{
+" turn of search highlight
+nnoremap <leader>nhl :nohlsearch<CR>
+"togle folds map
+nnoremap <leader>tf za
+" MOVEMENT #############
+"move verticaly by visual line
+nnoremap j gj
+nnoremap k gk
+"move to the begin/end of line
+nnoremap B ^
+nnoremap E $
+nnoremap ^ <nop>
+nnoremap $ <nop>
+"highlight last inserted text
+nnoremap <leader>hli `[v`]
+
+"### Key Config ###
+
+"for open the file finder
+nnoremap <C-p> :<C-u>FZF<CR>
+
+"open vimrc
+nnoremap <leader>ovrc :tabnew $MYVIMRC<CR>
+
+"source vimrc
+nnoremap <leader>svrc :source $MYVIMRC<CR>
+
+"open javascript snippets
+nnoremap <leader>snip :vsp ~/.config/nvim/ultisnippets/javascript.snippets
+
+" jk to exit inseat esc
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+" Save from insertMode
+inoremap :w <ESC>:w<CR>
+
+" Save the session - to restore needs nvim -S
+nnoremap <leader>s :mksession<CR>
+
+" inner word uppercase
+nnoremap <leader>uiw viwU
+
 " }}}
 
 " ABBREVIATIONS {{{
