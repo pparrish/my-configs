@@ -60,11 +60,12 @@ set showmatch               " highlight matching [{()}]
 set wrap
 set linebreak
 set nolist
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
 "Statusline name -> column line percent
-set statusline=%.20F%=[%02.2c[%03.3l\\%02.2p%%]
+"file(nim=0,max=10) CocStatus
+"column(min=2,max=2)line(min=2,max=2)percentOfFile(min=2,max=2)
+set statusline=%.10F%\-{coc#status()}%{get(b:,'coc_current_function','')}\-%=[%02.2c[%03.3l\\%02.2p%%]
 
 " SEARCHING #############
 set incsearch               " search as characters are entered
