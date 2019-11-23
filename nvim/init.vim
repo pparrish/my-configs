@@ -179,6 +179,8 @@ nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
   set wrap
   set linebreak
   set nolist
+"Statusline name -> column line percent
+set statusline=%.20F%=[%02.2c[%03.3l\\%02.2p%%]
 
 " SEARCHING #############
   set incsearch               " search as characters are entered
