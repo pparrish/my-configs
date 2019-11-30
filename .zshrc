@@ -125,7 +125,7 @@ alias vimrc='nvim ~/.config/nvim/init.vim'
 alias notrc='nvim ~/.grettings'
 alias szshrc='source ~/.zshrc'
 alias nohusky='HUSKY_SKIP_HOOKS=1 git'
-alias -s {json,js,vim}=nvim
+alias -s {json,js,vim,md}=nvim
 
 clear
 # Grettings message
