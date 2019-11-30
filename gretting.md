@@ -51,6 +51,11 @@ _______
 <c-a> add number to (ex. 10<C-a>)
 <c-x> subtract numver (ex. 12<c-x>)
 
+## Keys valid in console and vim
+* c-h backspace
+* c-w delete previus word 
+* c-u delete all line
+
 _______
 
 
