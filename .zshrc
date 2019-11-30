@@ -117,6 +117,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 alias aglcf="git config --list --show-origin"
 #Create a branch and go to branch
 alias takeBranch="git checkout -b"
+alias merge="git merge --no-ff"
 
 # Aliases
 alias zshrc='nvim ~/.zshrc'
