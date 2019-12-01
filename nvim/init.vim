@@ -15,6 +15,18 @@ call minpac#add('neoclide/coc.nvim')
 " Config                      =========
 
 " gundo                       =========
+" https://sjl.bitbucket.io/gundo.vim/
+let g:gundo_width = 5
+let g:gundo_preview_height = 5
+"window
+"derault
+"w 45
+"h 15"
+let g:gundo_preview_bottom = 1
+"The preview is show in bottom of the window"
+let g:gundo_right = 1
+let g:gundo_help  = 0
+let g:gundo_close_on_revert = 1
 "|||||||||||||||||||||||||||||---------
 
 " Rainbow                     =========
