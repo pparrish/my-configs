@@ -6,7 +6,6 @@ call minpac#add('posva/vim-vue')
 call minpac#add('jalvesaq/Nvim-R')
 call minpac#add('godlygeek/tabular')
 call minpac#add('plasticboy/vim-markdown')
-call minpac#add('dense-analysis/ale')
 call minpac#add('oblitum/rainbow')
 call minpac#add('sjl/gundo.vim')
 call minpac#add('neoclide/coc.nvim')
@@ -34,15 +33,6 @@ let g:rainbow_active = 1
 "|||||||||||||||||||||||||||||---------
 
 
-" Config {{{
-let g:ale_linters = {
-      \'javascript': ['standard']
-      \}
-let g:ale_fixers = { 'javascript': ['standard'] }
-let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:ale_linters_explicit = 1
-let g:rainbow_active = 1
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Some servers have issues with backup files, see #649
