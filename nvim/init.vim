@@ -1,4 +1,4 @@
-" Plugins {{{
+" Plugins                     =========
 packadd minpac
 call minpac#init()
 call minpac#add('herrbischoff/cobalt2.vim')
@@ -10,7 +10,16 @@ call minpac#add('dense-analysis/ale')
 call minpac#add('oblitum/rainbow')
 call minpac#add('sjl/gundo.vim')
 call minpac#add('neoclide/coc.nvim')
-" }}}
+"|||||||||||||||||||||||||||||---------
+
+" Config                      =========
+
+" gundo                       =========
+"|||||||||||||||||||||||||||||---------
+
+" Rainbow                     =========
+let g:rainbow_active = 1
+"|||||||||||||||||||||||||||||---------
 
 
 " Config {{{
@@ -88,11 +97,9 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+"|||||||||||||||||||||||||||||---------
 
-" }}}
-
-
-" Conmands {{{
+" Conmands                    =========
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -104,14 +111,11 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+"|||||||||||||||||||||||||||||---------
 
-"}}}
+" FUNCTIONS                   =========
 
-
-" FUNCTIONS {{{
-
-" --CoC {{{
-
+" --CoC                       =========
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -124,8 +128,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-"}}}
+"|||||||||||||||||||||||||||||---------
 
 " togle betwen relative and non relative number
 function! ToggleNumber()
@@ -136,14 +139,11 @@ function! ToggleNumber()
     set relativenumber
   endif
 endfunction
+"|||||||||||||||||||||||||||||---------
 
-" }}}
+" AUTOCMD                     =========
 
-
-" AUTOCMD {{{
-
-" --CoC {{{
-
+" --CoC                       =========
 augroup cocgroup
   autocmd!
 
@@ -157,8 +157,7 @@ augroup cocgroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 augroup end
-
-" }}}
+"|||||||||||||||||||||||||||||---------
 
 augroup configgroup
   autocmd!
@@ -166,17 +165,14 @@ augroup configgroup
   autocmd! VimEnter * hi Folded ctermbg=0
   autocmd filetype vim,zsh :set foldmethod=marker foldlevel=0 foldmarker==========,---------
 augroup end
+"|||||||||||||||||||||||||||||---------
 
-"}}}
-
-
-" Keys {{{
+" Keys                        =========
 
 "Set leader at first
 let g:mapleader = ','
 
-" --CoC {{{
-
+" --CoC                       =========
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -255,13 +251,15 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR> coc
 
 "Open the snippets
 nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
-" }}}
 
-" --Gundo {{{
+"                            __________
+"|||||||||||||||||||||||||||||---------
+
+" --Gundo                     =========
 
 nnoremap <leader>tu :GundoToggle<CR>
 
-"}}}
+"|||||||||||||||||||||||||||||---------
 
 " turn of search highlight
 nnoremap <leader>nhl :nohlsearch<CR>
@@ -307,11 +305,11 @@ nnoremap <leader>s :mksession<CR>
 " inner word uppercase
 nnoremap <leader>uiw viwU
 
-" }}}
+"|||||||||||||||||||||||||||||---------
 
-
-" ABBREVIATIONS {{{
+" ABBREVIATIONS               =========
 iabbrev cont const
 iabbrev strenght strength
 iabbrev nwe new
-" }}}
+"|||||||||||||||||||||||||||||---------
+
