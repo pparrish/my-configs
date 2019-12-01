@@ -163,8 +163,8 @@ augroup end
 augroup configgroup
   autocmd!
   autocmd VimEnter * highlight clear SignColumn
-  autocmd bufwritepost *.js silent !standard % --fix
-  autocmd filetype vim :set foldmethod=marker foldlevel=0
+  autocmd! VimEnter * hi Folded ctermbg=0
+  autocmd filetype vim,zsh :set foldmethod=marker foldlevel=0 foldmarker==========,---------
 augroup end
 
 "}}}
