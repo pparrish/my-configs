@@ -32,73 +32,65 @@ let g:gundo_close_on_revert = 1
 let g:rainbow_active = 1
 "|||||||||||||||||||||||||||||---------
 
+" #### UI ######################### 
+colorscheme cobalt2
+set cmdheight=2
+set showcmd  
+" Better display for messages
+set statusline=%.10t%\-{coc#status()}%{get(b:,'coc_current_function','')}\-%=%m[%02.2c[%03.3l\\%02.2p%%]
+"Traduction.
+"file(nim=0,max=10)-CocStatus-[column(min=2,max=2)[line(min=2,max=2)/percentOfFile(min=2,max=2)]
+":h coc-status`
 
+" always show signcolumns
+set signcolumn=yes
+set wildmenu                "Visual autocomplete for command menu
+set number                  " add line numbers
+
+" #### Fold ####################### 
+set foldenable              
+set foldlevelstart=1        
+set foldnestmax=1           
+set foldmethod=indent       
+" enable folding
+" open 2 level of folds
+" max folding level
+" marker manual expr syntax diff
+
+set showmatch               " highlight matching [{()}]
 " if hidden is not set, TextEdit might fail.
 set hidden
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-" Better display for messages
-set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-" COLORS ################
-colorscheme cobalt2         " my theme
 syntax enable
-
+filetype indent on          "Auto indent depending on files in ./indent/[filetype].vim
 " SPACES AND TABS #######
 set tabstop=2               " number of columns occupied by a tab character
 set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
-set ignorecase              " case insensitive matching
 set shiftwidth=2            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
-" UI ####################
-syntax on
-set number                  " add line numbers
-set showcmd                 "show last command in the bar
-
-
-filetype indent on          "Auto indent depending on files in ./indent/[filetype].vim
-set wildmenu                "Visual autocomplete for command menu
+set ignorecase              " case insensitive matching
 set lazyredraw              " Redraw only when is nedded
-set showmatch               " highlight matching [{()}]
 "set the 'read mode'
 set wrap
 set linebreak
 set nolist
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-"Statusline name -> column line percent
-"file(nim=0,max=10) CocStatus
-"column(min=2,max=2)line(min=2,max=2)percentOfFile(min=2,max=2)
-set statusline=%.10F%\-{coc#status()}%{get(b:,'coc_current_function','')}\-%=[%02.2c[%03.3l\\%02.2p%%]
-
-" SEARCHING #############
 set incsearch               " search as characters are entered
 set hlsearch                " highlight search results
-
-" FOLDING ##############
-set foldenable              " enable folding
-set foldlevelstart=1        " open 2 level of folds
-set foldnestmax=4           " max folding level
-set foldmethod=indent       " marker manual expr syntax diff
-
-" BEHAIBOR ###################
 set autoread
 "Set the <c-x> and <c-a> only use decimal
 set nrformats=
-
-" BACKUP #########
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+" Coc note: Some servers have issues with backup files, if a server fail
+" set nobackup
+" set nowritebackup
 "|||||||||||||||||||||||||||||---------
 
 " Conmands                    =========
@@ -254,13 +246,18 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR> coc
 "Open the snippets
 nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
 
+" Coc Snippets plugin        __________
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 "                            __________
 "|||||||||||||||||||||||||||||---------
 
 " --Gundo                     =========
 
 nnoremap <leader>tu :GundoToggle<CR>
-
 "|||||||||||||||||||||||||||||---------
 
 " turn of search highlight
@@ -291,7 +288,8 @@ nnoremap <leader>ovrc :tabnew $MYVIMRC<CR>
 "source vimrc
 nnoremap <leader>svrc :source $MYVIMRC<CR>
 
-"open javascript snippets
+"Tab_triggeropen javascript snippets
+" @Dont Work use :coccommand snippets.editSnippets
 nnoremap <leader>snip :vsp ~/.config/nvim/ultisnippets/javascript.snippets
 
 " jk to exit inseat esc
@@ -307,11 +305,14 @@ nnoremap <leader>s :mksession<CR>
 " inner word uppercase
 nnoremap <leader>uiw viwU
 
+" open a fold when press j
+nnoremap <silent> l @=(foldlevel('.') ? 'zo' : 'l' )<CR>l
 "|||||||||||||||||||||||||||||---------
 
 " ABBREVIATIONS               =========
 iabbrev cont const
 iabbrev strenght strength
 iabbrev nwe new
+iabbrev hability ability
 "|||||||||||||||||||||||||||||---------
 
