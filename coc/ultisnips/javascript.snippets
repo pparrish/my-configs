@@ -35,12 +35,6 @@ describe('$1', () => {
 })
 endsnippet
 
-snippet jtc "jest test with expect to contain"
-test('$1', () => {
-	expect($2).toContain($3)
-})
-endsnippet
-
 snippet jinit "init a jest file"
 /* eslint-env jest */
 $1
@@ -49,9 +43,4 @@ describe('$2', () => {
 		$4
 	})$0
 })
-endsnippet
-
-snippet jtodo "make a todo jest test"
-test.todo('$1', () => {})
-$0
 endsnippet
