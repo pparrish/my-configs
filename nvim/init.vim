@@ -50,7 +50,7 @@ set number                  " add line numbers
 " #### Fold ####################### 
 set foldenable              
 set foldlevelstart=1        
-set foldnestmax=1           
+set foldnestmax=2           
 set foldmethod=indent       
 " enable folding
 " open 2 level of folds
@@ -243,16 +243,17 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR> coc
 
+" Coc Snippets plugin        __________
+
 "Open the snippets
 nnoremap <leader>osnp :CocCommand snippets.editSnippets<CR>
-
-" Coc Snippets plugin        __________
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 "                            __________
+
 "|||||||||||||||||||||||||||||---------
 
 " --Gundo                     =========
