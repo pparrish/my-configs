@@ -1,0 +1,43 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+URL=$1
+
+echo "====================="
+echo "URL: " $URL
+if [[ $URL == *"youtu.be"* || $URL == *"youtube.com"* ]]; then
+	echo "YOUTUBE"
+	echo "What do you whant to do with the video"
+	echo "v) video a) audio"
+	read CHOISE
+	if [[ $CHOISE == "v" ]]; then
+    youtube-dl $URL -o "~/storage/movies/%(title)s.%(ext)s"
+	elif [[ $CHOISE == "a" ]]; then
+		youtube-dl -f 'bestaudio[ext=m4a]' $URL -o "~/storage/music/%(title)s.%(ext)s"
+	else 
+		echo "invalid option"
+	fi
+elif [[ $URL == *"github.com"* ]]; then
+	echo "GITHUB"
+	echo "What do you whant to do with the repository"
+	echo "c) clone"
+	read CHOISE
+	if [[ $CHOISE == "c" ]]; then
+		git clone $URL
+	else
+		echo "invalid option"
+	fi
+
+else
+	echo "What do you whant to do with URL"
+  echo "s) Save n) nothing"
+	read CHOISE
+	if [[ $CHOISE == "s" ]]; then
+    echo $URL >> ~/urls.txt
+    echo "Saved link."
+	elif [[ $CHOISE == "n" ]]; then
+    echo "Nothing to do with url"
+	else 
+		echo "invalid option"
+	fi
+fi
+read -n 1 -s -p "press any key to exit"
