@@ -14,7 +14,8 @@ coc plugins need to install this extension by :CocInstall ...
 * coc-vue
 * coc-tsserver
 * coc-json
-* coc-ultisnipps?
+* coc-ultisnipps
+* coc-paits
 
 ## coc/ultisnips
 This is the snippets than i created
@@ -31,5 +32,5 @@ ln -s ~/.config/coc/ultisnips/ ~/configs/coc/ultisnips
 
 # TODOS
 * add gitignores
-* make a instalm script
+* make a install script
 * make a update script
