@@ -1,11 +1,9 @@
 " Plugins                     =========
 packadd minpac
 call minpac#init()
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('herrbischoff/cobalt2.vim')
 call minpac#add('posva/vim-vue')
-call minpac#add('jalvesaq/Nvim-R')
-call minpac#add('godlygeek/tabular')
-call minpac#add('plasticboy/vim-markdown')
 call minpac#add('oblitum/rainbow')
 call minpac#add('sjl/gundo.vim')
 call minpac#add('neoclide/coc.nvim')
@@ -33,7 +31,7 @@ let g:rainbow_active = 1
 "|||||||||||||||||||||||||||||---------
 
 " #### UI ######################### 
-colorscheme cobalt2
+colorscheme lucius
 set cmdheight=2
 set showcmd  
 " Better display for messages
@@ -45,12 +43,15 @@ set statusline=%.10t%\-{coc#status()}%{get(b:,'coc_current_function','')}\-%=%m[
 " always show signcolumns
 set signcolumn=yes
 set wildmenu                "Visual autocomplete for command menu
-set number                  " add line numbers
+set nonumber                 
+"No add line noumbers becasuse the space of the mobile screen is reduced,
+"and the numbers is ofthen a distractor. If you need go to some line you can
+"use <number>gg.
 
 " #### Fold ####################### 
 set foldenable              
 set foldlevelstart=1        
-set foldnestmax=2           
+set foldnestmax=3           
 set foldmethod=indent       
 " enable folding
 " open 2 level of folds
@@ -83,14 +84,14 @@ set hlsearch                " highlight search results
 set autoread
 "Set the <c-x> and <c-a> only use decimal
 set nrformats=
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
+" set backup
+"set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+"set backupskip=/tmp/*,/private/tmp/*
+"set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+"set writebackup
 " Coc note: Some servers have issues with backup files, if a server fail
-" set nobackup
-" set nowritebackup
+set nobackup
+set nowritebackup
 "|||||||||||||||||||||||||||||---------
 
 " Conmands                    =========
@@ -158,6 +159,8 @@ augroup configgroup
   autocmd VimEnter * highlight clear SignColumn
   autocmd! VimEnter * hi Folded ctermbg=0
   autocmd filetype vim,zsh :set foldmethod=marker foldlevel=0 foldmarker==========,---------
+  autocmd! BufWritePre *.{js,cjs,mjs,jsx} :CocCommand eslint.executeAutofix 
+  au! BufNewFile,BufRead *.svelte set ft=html
 augroup end
 "|||||||||||||||||||||||||||||---------
 

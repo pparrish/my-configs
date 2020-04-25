@@ -130,3 +130,4 @@ alias -s {json,js,vim,md}=nvim
 clear
 # Grettings message
 cat ~/.grettings
+cat ~/urls.txt
