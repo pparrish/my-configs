@@ -5,7 +5,7 @@ termux-setup-storage
 sleep 5s
 
 #Update termux packages
-apt update && apt upgrade -y
+pkg upgrade -y
 
 #Install
 pkg install neovim nodejs yarn python python2 termux-api zsh git -y
